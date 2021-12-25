@@ -1,17 +1,25 @@
-package com.yeahbutstill.learnspring.bean;
+package com.yeahbutstill.learnspring.qualifierdi;
 
 import com.yeahbutstill.learnspring.data.Address;
 import com.yeahbutstill.learnspring.data.Cart;
 import com.yeahbutstill.learnspring.data.Category;
 import com.yeahbutstill.learnspring.data.Product;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
-public class BeanDependencyInjection {
+public class QualifierDi {
+
+    @Primary
+    @Bean
+    public Product newProduct() {
+        return new Product();
+    }
 
     @Bean
-    public Product product() {
+    public Product secondProduct() {
         return new Product();
     }
 
@@ -21,12 +29,12 @@ public class BeanDependencyInjection {
     }
 
     @Bean
-    public Address address() {
+    public Address Address() {
         return new Address();
     }
 
     @Bean
-    public Cart cart(Product product, Category category, Address address) {
+    public Cart cart(@Qualifier("secondProduct") Product product, Category category, Address address) {
         return new Cart(product, category, address);
     }
 

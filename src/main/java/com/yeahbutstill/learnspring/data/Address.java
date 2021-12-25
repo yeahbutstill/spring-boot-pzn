@@ -4,13 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-public class Cart {
-
-    private Product product;
-    private Category category;
-    private Address address;
-
+public class Address {
+    private long id;
+    private String nameAddress;
 }
