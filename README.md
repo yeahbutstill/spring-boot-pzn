@@ -201,14 +201,14 @@ https://start.spring.io
 
 ## Bean Scope
 
-| Scope     | Keterangan                                             |
-|-----------|--------------------------------------------------------|
-| singleton | (Default) Hanya dibuat sekali dalam Spring IoC         |
-| prototype | Selalu dibuat object baru setiap kali bean diakses     |
-| request   | Dibuat baru per HTTP Request (hanya untuk Web App)     |
-| session | Dibuat baru per HTTP Session (hanya untuk Web App)     |
-| application | Dibuat baru per ServletContext (hanya untuk Web App)   |
-| websocket | Dibuat baru per WebSocket (hanya untuk WebSocket App)  |
+| Scope       | Keterangan                                            |
+|-------------|-------------------------------------------------------|
+| singleton   | (Default) Hanya dibuat sekali dalam Spring IoC        |
+| prototype   | Selalu dibuat object baru setiap kali bean diakses    |
+| request     | Dibuat baru per HTTP Request (hanya untuk Web App)    |
+| session     | Dibuat baru per HTTP Session (hanya untuk Web App)    |
+| application | Dibuat baru per ServletContext (hanya untuk Web App)  |
+| websocket   | Dibuat baru per WebSocket (hanya untuk WebSocket App) |
 
 ## Membuat Scope
 
@@ -216,4 +216,22 @@ https://start.spring.io
 - Caranya dengan membuat class yang implement interface Scope
 - https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/config/Scope.html
 - Selanjutnya untuk meregistrasikannya, kita bisa membuat bean CustomScopeConfigurer
-- https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/config/CustomScopeConfigurer.html 
+- https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/config/CustomScopeConfigurer.html
+
+## Life Cycle
+
+- Spring Container memiliki alur hidup, dan jika kita ingin berinteraksi dengan alur hidup nya Spring, kita juga bisa
+  lakukan
+- Saat pertama kali Spring berjalan dan sudah selesai membuat bean, Spring akan memberitahu bean tersebut bahwa bean
+  tersebut sudah siap, artinya semua dependencies sudah dimasukkan.
+- Dan ketika aplikasi Spring akan mati, Spring juga akan memberitahu semua bean bahwa bean tersebut akan dihancurkan
+
+## Life Cycle Callback
+
+- Secara default, bean tidak bisa tahu alur hidup Spring ketika selesai membuat bean dan ketika akan menghancurkan bean
+- Jika kita tertarik untuk bereaksi ketika alur hidup Spring terjadi, maka kita bisa implements interface
+  InitializingBean dan DisposableBean
+- InitializingBean digunakan jika kita ingin bereaksi ketika Spring selesai membuat bean
+- https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/InitializingBean.html
+- DisposableBean digunakan jika kita ingin bereaksi ketika Spring akan menghancurkan bean
+- https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/DisposableBean.html 
