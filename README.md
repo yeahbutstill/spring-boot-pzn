@@ -174,3 +174,46 @@ https://start.spring.io
 - Jika terjadi cyclic seperti ini, secara otomatis Spring bisa mendeteksinya, dan akan mengganggap bahwa itu adalah
   error
 
+## Depends On
+
+- Saat sebuah bean membutuhkan bean lain, secara otomatis bean tersebut akan dibuat setelah bean yang dibutuhkan dibuat
+- Namun bagaimana jika bean tersebut tidak membutuhkan bean lain, namun kita ingin sebuah bean dibuat setelah bean lain
+  dibuat?
+- Jika ada kasus seperti itu, kita bisa menggunakan annotation @DependsOn(value={”namaBean”})
+- Secara otomatis, Spring akan memprioritaskan pembuatan bean yang terdapat di DependsOn terlebih dahulu
+
+## Lazy Bean
+
+- Secara default, bean di Spring akan dibuat ketika aplikasi Spring pertama kali berjalan
+- Oleh karena itu, kadang ketika aplikasi Spring pertama berjalan akan sedikit lambat, hal ini dikarenakan semua bean
+  akan dibuat di awal
+- Namun jika kita mau, kita juga bisa membuat sebuah bean menjadi lazy (malas), dimana bean tidak akan dibuat, sampai
+  memang diakses atau dibutuhkan
+- Untuk membuat sebuah bean menjadi lazy, kita bisa tambahkan annotation @Lazy pada bean tersebut
+
+## Scope
+
+- Scope merupakan strategy cara sebuah object dibuat
+- Secara default strategy object di Spring adalah singleton, artinya hanya dibuat sekali, dan ketika kita akses, akan
+  mengembalikan object yang sama
+- Namun kita juga bisa mengubah scope bean yang kita mau di Spring
+- Untuk mengubah scope sebuah bean, kita bisa tambahkan annotation @Scope(value=”namaScope”)
+
+## Bean Scope
+
+| Scope     | Keterangan                                             |
+|-----------|--------------------------------------------------------|
+| singleton | (Default) Hanya dibuat sekali dalam Spring IoC         |
+| prototype | Selalu dibuat object baru setiap kali bean diakses     |
+| request   | Dibuat baru per HTTP Request (hanya untuk Web App)     |
+| session | Dibuat baru per HTTP Session (hanya untuk Web App)     |
+| application | Dibuat baru per ServletContext (hanya untuk Web App)   |
+| websocket | Dibuat baru per WebSocket (hanya untuk WebSocket App)  |
+
+## Membuat Scope
+
+- Jika scope yang disediakan oleh Spring tidak bisa memenuhi kebutuhan kita, kita juga bisa membuat scope sendiri
+- Caranya dengan membuat class yang implement interface Scope
+- https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/config/Scope.html
+- Selanjutnya untuk meregistrasikannya, kita bisa membuat bean CustomScopeConfigurer
+- https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/config/CustomScopeConfigurer.html 
