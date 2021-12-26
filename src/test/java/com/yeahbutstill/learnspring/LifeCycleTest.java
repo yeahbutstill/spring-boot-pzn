@@ -2,6 +2,7 @@ package com.yeahbutstill.learnspring;
 
 import com.yeahbutstill.learnspring.bean.LifeCycleConfiguration;
 import com.yeahbutstill.learnspring.lifecycle.Connections;
+import com.yeahbutstill.learnspring.lifecycle.Servers;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,5 +27,10 @@ public class LifeCycleTest {
     @Test
     void testConnection() {
         Connections connections = configurableApplicationContext.getBean(Connections.class);
+    }
+
+    @Test
+    void testServers() {
+        Servers beanServers = configurableApplicationContext.getBean(Servers.class);
     }
 }
