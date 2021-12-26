@@ -1,4 +1,4 @@
-package com.yeahbutstill.learnspring.bean;
+package com.yeahbutstill.learnspring.service;
 
 import org.springframework.stereotype.Component;
 

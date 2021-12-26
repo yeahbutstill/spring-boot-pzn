@@ -234,34 +234,64 @@ https://start.spring.io
 - InitializingBean digunakan jika kita ingin bereaksi ketika Spring selesai membuat bean
 - https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/InitializingBean.html
 - DisposableBean digunakan jika kita ingin bereaksi ketika Spring akan menghancurkan bean
-- https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/DisposableBean.html 
+- https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/DisposableBean.html
 
 ## Life Cycle Annotation
-- Selain menggunakan interface InitializingBean dan DisposableBean, kita juga bisa menggunakan annotation untuk mendaftarkan callback method untuk lifecycle 
+
+- Selain menggunakan interface InitializingBean dan DisposableBean, kita juga bisa menggunakan annotation untuk
+  mendaftarkan callback method untuk lifecycle
 - Pada annotation @Bean, terdapat method initMethod() dan destoyMethod()
-- initMethod() digunakan untuk meregistrasikan method yang akan dipanggil ketika bean selesai dibuat 
-- destroyMethod() digunakan untuk meregistrasikan method yang akan dipanggil ketika bean akan dihancurkan 
+- initMethod() digunakan untuk meregistrasikan method yang akan dipanggil ketika bean selesai dibuat
+- destroyMethod() digunakan untuk meregistrasikan method yang akan dipanggil ketika bean akan dihancurkan
 - Methodnya harus tanpa parameter, dan return value nya tidak akan dipedulikan, jadi sebaiknya gunakan void saja
 
 ## @PostConstruct dan @PreDestroy
-- Selain menggunakan annotation @Bean, untuk menandai sebuah method adalah init method dan destroy method, kita juga bisa menggunakan annotation pada method nya secara langsung 
-- Ini bisa digunakan untuk menghindari kita lupa menyebutkan init dan destroy method ketika membuat @Bean 
-- @PostConstruct merupakan method yang ditandai harus dipanggil ketika bean selesai dibuat 
-- @PreDestroy merupakan method yang ditandai harus dipanggil ketika bean akan dihancurkan 
+
+- Selain menggunakan annotation @Bean, untuk menandai sebuah method adalah init method dan destroy method, kita juga
+  bisa menggunakan annotation pada method nya secara langsung
+- Ini bisa digunakan untuk menghindari kita lupa menyebutkan init dan destroy method ketika membuat @Bean
+- @PostConstruct merupakan method yang ditandai harus dipanggil ketika bean selesai dibuat
+- @PreDestroy merupakan method yang ditandai harus dipanggil ketika bean akan dihancurkan
 - Jika sudah menggunakan annotation ini, kita tidak perlu lagi menyebutkan nya di @Bean
 
 ## Import
-- Saat nanti kita membuat aplikasi, tidak mungkin kita hanya akan membuat satu Configuration Class 
-- Biasanya kita akan membuat banyak sekali, tergantung seberapa kompleks aplikasi kita 
-- Spring mendukung import Configuration Class lain jika dibutuhkan 
-- Kita bisa menggunakan annotation @Import, lalu sebutkan Configuration Class mana yang ingin kita import 
+
+- Saat nanti kita membuat aplikasi, tidak mungkin kita hanya akan membuat satu Configuration Class
+- Biasanya kita akan membuat banyak sekali, tergantung seberapa kompleks aplikasi kita
+- Spring mendukung import Configuration Class lain jika dibutuhkan
+- Kita bisa menggunakan annotation @Import, lalu sebutkan Configuration Class mana yang ingin kita import
 - Ketika kita melakukan import, kita bisa import lebih dari satu class
-- https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Import.html 
+- https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Import.html
 
 ## Component Scan
-- Import adalah hal yang sangat menarik, karena kita bisa memecah Configuration Class menjadi banyak Class 
-- Namun semakin lama, pasti aplikasi kita akan semakin besar, dan secara otomatis Configuration Class akan menjadi banyak 
-- Melakukan import satu persatu sudah tidak menyenangkan lagi jika terlalu banyak 
-- Spring memiliki fitur component scan, dimana kita bisa secara otomatis mengimport Configuration di sebuah package dan sub package nya secara otomatis 
+
+- Import adalah hal yang sangat menarik, karena kita bisa memecah Configuration Class menjadi banyak Class
+- Namun semakin lama, pasti aplikasi kita akan semakin besar, dan secara otomatis Configuration Class akan menjadi
+  banyak
+- Melakukan import satu persatu sudah tidak menyenangkan lagi jika terlalu banyak
+- Spring memiliki fitur component scan, dimana kita bisa secara otomatis mengimport Configuration di sebuah package dan
+  sub package nya secara otomatis
 - Untuk melakukan itu, kita bisa gunakan annotation @ComponentScan
-- https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html 
+- https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html
+
+## Component
+
+- Sebelumnya kita sudah belajar membuat bean menggunakan method di configuration dengan annotation @Bean
+- Spring juga menyediakan cara otomatis tanpa harus kita membuat method @Bean
+- Kita bisa menandai sebuah class dengan annotation @Component, secara otomatis Spring akan membuatkan bean untuk class
+  tersebut
+- @Component hanya mendukung pembuatan satu bean, jadi jika kita ingin membuat beberapa bean dengan tipe yang sama, kita
+  tetap harus menggunakan @Bean method
+
+## Component Bean Name
+
+- Saat kita menggunakan @Component, nama bean akan secara otomatis dibuat otomatis oleh Spring
+- Jika kita menggunakan @ComponentScan, secara otomatis bean name secara otomatis akan menggunakan nama class namun
+  menjadi camelCase, misal CategoryService menjadi categoryService, ProductWeb menjadi productWeb
+- Jika kita menggunakan @Import, secara otomatis bean name akan menjadi NamaClass.class.getName()
+- Namun jika ingin membuat nama berbeda, kita juga bisa gunakan @Component(value=”namaBean”)
+
+## Annotation
+
+- Semua annotation yang sudah kita bahas di @Bean juga didukung di @Component
+- Seperti misalnya @Scope, @PostConstruct, @PreDestroy, @Lazy, @Primary dan lain-lain
