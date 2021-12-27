@@ -5,7 +5,8 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan(basePackages = {
-        "com.yeahbutstill.learnspring.service"
+        "com.yeahbutstill.learnspring.service",
+        "com.yeahbutstill.learnspring.repository"
 })
 public class ComponentConfiguration {
 }

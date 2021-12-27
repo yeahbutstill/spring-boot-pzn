@@ -295,3 +295,35 @@ https://start.spring.io
 
 - Semua annotation yang sudah kita bahas di @Bean juga didukung di @Component
 - Seperti misalnya @Scope, @PostConstruct, @PreDestroy, @Lazy, @Primary dan lain-lain
+
+## Constructor-based Dependency Injection
+## Dependency Injection
+- Sebelumnya untuk melakukan Dependency Injection di @Bean, kita bisa menambah parameter di method nya 
+- Secara otomatis Spring akan memilih bean mana yang cocok untuk parameter tersebut 
+- Bagaimana jika menggunakan @Component? 
+- Untuk @Component kita bisa melakukan beberapa cara untuk Dependency Injection nya
+
+## Constructor-based Dependency Injection
+- Pertama yang bisa kita lakukan untuk Dependency Injection di @Component adalah menggunakan constructor parameter 
+- Kita bisa menambahkan constructor yang memiliki parameter jika membutuhkan bean lain 
+- Secara otomatis Spring akan mencarikan bean tersebut, dan ketika membuat bean @Component, Spring akan menggunakan bean yang dibutuhkan di constructor 
+- Constructor-based Dependency Injection hanya mendukung satu constructor, jadi pastikan kita hanya membuat satu constructor
+
+## Multiple Constructor
+- Seperti di awal disebutkan bahwa Spring hanya mendukung satu constructor untuk Dependency Injection nya 
+- Namun bagaimana jika terdapat multiple constructor? 
+- Jika pada kasus seperti ini, kita harus menandai constructor mana yang akan digunakan oleh Spring 
+- Caranya kita bisa menggunakan annotation @Autowired
+
+## Setter-based Dependency Injection
+- Selain menggunakan constructor parameter, kita juga bisa menggunakan setter method jika ingin melakukan dependency injection 
+- Namun khusus untuk setter method, kita perlu menambah annotation @Autowired pada setter method nya 
+- Secara otomatis Spring akan mencari bean yang dibutuhkan di setter method yang memiliki annotation @Autowired 
+- Setter-based DI juga bisa digabung dengan Constructor-based DI
+
+## Field-based Dependency Injection
+- Selain constructor dan setter, kita juga bisa melakukan dependency injection langsung menggunakan field 
+- Caranya sama dengan setter, kita bisa tambahkan @Autowired pada fieldnya 
+- Secara otomatis Spring akan mencari bean dengan tipe data tersebut 
+- Field-based DI bisa digabung sekaligus dengan Setter-based DI dan Constructor-based DI 
+- Khusus Field-based DI, Spring sendiri sudah tidak merekomendasikan penggunaan cara melakukan DI dengan Field

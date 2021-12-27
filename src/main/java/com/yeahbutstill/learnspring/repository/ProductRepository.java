@@ -1,2 +1,7 @@
-package com.yeahbutstill.learnspring.repository;public class ProductRepository {
+package com.yeahbutstill.learnspring.repository;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class ProductRepository {
 }

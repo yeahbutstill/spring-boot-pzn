@@ -1,2 +1,7 @@
-package com.yeahbutstill.learnspring.repository;public class CategoryRepository {
+package com.yeahbutstill.learnspring.repository;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class CategoryRepository {
 }
