@@ -1,6 +1,6 @@
 package com.yeahbutstill.learnspring.configur;
 
-import objectprovider.MultiFoo;
+import com.yeahbutstill.learnspring.objectprovider.MultiFoo;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;

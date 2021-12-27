@@ -1,4 +1,4 @@
-package objectprovider;
+package com.yeahbutstill.learnspring.objectprovider;
 
 import com.yeahbutstill.learnspring.data.Foo;
 import lombok.Getter;

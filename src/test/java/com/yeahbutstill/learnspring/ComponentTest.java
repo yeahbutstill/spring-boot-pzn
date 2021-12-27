@@ -1,13 +1,13 @@
 package com.yeahbutstill.learnspring;
 
 import com.yeahbutstill.learnspring.configur.ComponentConfiguration;
+import com.yeahbutstill.learnspring.objectprovider.MultiFoo;
 import com.yeahbutstill.learnspring.repository.CategoryRepository;
 import com.yeahbutstill.learnspring.repository.CustomerRepository;
 import com.yeahbutstill.learnspring.repository.ProductRepository;
 import com.yeahbutstill.learnspring.service.CategoryService;
 import com.yeahbutstill.learnspring.service.CustomerService;
 import com.yeahbutstill.learnspring.service.ProductService;
-import objectprovider.MultiFoo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
