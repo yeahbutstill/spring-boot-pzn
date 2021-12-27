@@ -327,3 +327,4 @@ https://start.spring.io
 - Secara otomatis Spring akan mencari bean dengan tipe data tersebut 
 - Field-based DI bisa digabung sekaligus dengan Setter-based DI dan Constructor-based DI 
 - Khusus Field-based DI, Spring sendiri sudah tidak merekomendasikan penggunaan cara melakukan DI dengan Field
+

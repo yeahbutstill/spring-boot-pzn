@@ -2,8 +2,10 @@ package com.yeahbutstill.learnspring;
 
 import com.yeahbutstill.learnspring.configur.ComponentConfiguration;
 import com.yeahbutstill.learnspring.repository.CategoryRepository;
+import com.yeahbutstill.learnspring.repository.CustomerRepository;
 import com.yeahbutstill.learnspring.repository.ProductRepository;
 import com.yeahbutstill.learnspring.service.CategoryService;
+import com.yeahbutstill.learnspring.service.CustomerService;
 import com.yeahbutstill.learnspring.service.ProductService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -43,5 +45,13 @@ public class ComponentTest {
         CategoryRepository categoryRepository = configurableApplicationContext.getBean(CategoryRepository.class);
 
         Assertions.assertSame(categoryRepository, categoryService.getCategoryRepository());
+    }
+
+    @Test
+    void testFieldDI() {
+        CustomerService customerService = configurableApplicationContext.getBean(CustomerService.class);
+        CustomerRepository customerRepository = configurableApplicationContext.getBean(CustomerRepository.class);
+
+        Assertions.assertSame(customerRepository, customerService.getCustomerRepository());
     }
 }
