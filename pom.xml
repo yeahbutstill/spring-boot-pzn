@@ -14,7 +14,7 @@
     <name>learnspring</name>
     <description>Demo project for Spring Framework dan Spring Boot : Pemula sampai Mahir</description>
     <properties>
-        <java.version>17</java.version>
+        <java.version>1.8</java.version>
     </properties>
     <dependencies>
         <dependency>

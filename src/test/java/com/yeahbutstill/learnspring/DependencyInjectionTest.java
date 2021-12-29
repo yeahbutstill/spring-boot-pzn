@@ -5,6 +5,7 @@ import com.yeahbutstill.learnspring.data.Address;
 import com.yeahbutstill.learnspring.data.Cart;
 import com.yeahbutstill.learnspring.data.Category;
 import com.yeahbutstill.learnspring.data.Product;
+import lombok.var;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

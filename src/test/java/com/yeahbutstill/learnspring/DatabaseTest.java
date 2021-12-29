@@ -1,6 +1,7 @@
 package com.yeahbutstill.learnspring;
 
 import com.yeahbutstill.learnspring.singleton.Database;
+import lombok.var;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
