@@ -1,5 +1,6 @@
 package com.yeahbutstill.learnspring;
 
+import com.yeahbutstill.learnspring.eventlistenerannotation.UserListener;
 import com.yeahbutstill.learnspring.listener.LoginAgainSuccessListener;
 import com.yeahbutstill.learnspring.listener.LoginSuccessListener;
 import com.yeahbutstill.learnspring.service.UserService;
@@ -34,7 +35,8 @@ class EventListenerTest {
     @Import({
             LoginSuccessListener.class,
             LoginAgainSuccessListener.class,
-            UserService.class
+            UserService.class,
+            UserListener.class
     })
     public static class TestConfigurtion {
     }
