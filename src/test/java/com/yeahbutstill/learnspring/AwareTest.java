@@ -11,14 +11,6 @@ import org.springframework.context.annotation.Import;
 
 public class AwareTest {
 
-    @Configuration
-    @Import({
-            AuthService.class
-    })
-    public static class TestConfiguration {
-
-    }
-
     private ConfigurableApplicationContext applicationContext;
 
     @BeforeEach
@@ -33,5 +25,13 @@ public class AwareTest {
         Assertions.assertEquals("com.yeahbutstill.learnspring.service.AuthService", authService.getBeanName());
         Assertions.assertNotNull(authService.getApplicationContext());
         Assertions.assertSame(applicationContext, authService.getApplicationContext());
+    }
+
+    @Configuration
+    @Import({
+            AuthService.class
+    })
+    public static class TestConfiguration {
+
     }
 }

@@ -1,7 +1,6 @@
 package com.yeahbutstill.learnspring.service;
 
 import lombok.Data;
-import lombok.Getter;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.context.ApplicationContext;
