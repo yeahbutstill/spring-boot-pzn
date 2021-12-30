@@ -476,4 +476,33 @@ https://start.spring.io
 - EventListenerMethodProcessor mendeteksi jika ada bean yang memiliki method dengan annotation @EventListener, maka
   secara otomatis akan membuat listener baru, lalu meregistrasikannya ke ApplicationContext.addApplicationListener(
   listener)
-- https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/event/EventListenerMethodProcessor.html 
+- https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/event/EventListenerMethodProcessor.html
+
+## Spring Boot Application
+
+- Sebelumnya kita selalu membuat Application Context secara manual, dan kita belum menggunakan fitur otomatis Spring
+  Boot
+- Hal ini sengaja saya jelaskan agar kita tidak kaget bagaimana semua itu bisa berjalan secara otomatis di Spring Boot
+- Pada saat membuat aplikasi Spring Boot, kita akan mengganti @Configuration utama menjadi @SpringBootApplication
+- Isi dari @SpringBootApplication itu sendiri sebenarnya gabungan dari @Configuration dan banyak hal lain, seperti
+  contohnya @ComponentScan
+- https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/SpringBootApplication.html
+
+## Spring Application
+
+- Selain @SpringBootApplication, untuk membuat Application Context nya, kita tidak perlu membuat manual, kita bisa
+  gunakan class SpringApplication
+- Secara otomatis SpringApplication akan membuat ApplicationContext dan melakukan hal-hal yang dibutuhkan secara
+  otomatis
+- https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/SpringApplication.html
+
+## Spring Boot Test
+
+- Untuk membuat unit test di Spring Boot, kita bisa menggunakan annotation @SpringBootTest(
+  classes={YourConfiguration.class})
+- Selanjutnya kita tidak perlu mengambil bean secara manual lagi menggunakan ApplicationContext, kita bisa menggunakan
+  DI secara langsung di unit test nya menggunakan @Autowired
+- https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/context/SpringBootTest.html
+
+## Startup Failure
+-
