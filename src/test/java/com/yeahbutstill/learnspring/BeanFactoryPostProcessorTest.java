@@ -12,12 +12,6 @@ import org.springframework.context.annotation.Import;
 
 public class BeanFactoryPostProcessorTest {
 
-    @Configuration
-    @Import(FooBeanFactoryPostProcessor.class)
-    public static class TestConfiguration {
-
-    }
-
     private ConfigurableApplicationContext applicationContext;
 
     @BeforeEach
@@ -31,6 +25,12 @@ public class BeanFactoryPostProcessorTest {
 
         Foo foo = applicationContext.getBean(Foo.class);
         Assertions.assertNotNull(foo);
+
+    }
+
+    @Configuration
+    @Import(FooBeanFactoryPostProcessor.class)
+    public static class TestConfiguration {
 
     }
 }
