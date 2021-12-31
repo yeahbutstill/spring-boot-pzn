@@ -1,4 +1,4 @@
-# spring-boot-pzn
+# spring-boot-dasar-pzn
 
 ## Pengenalan Spring Framework
 
