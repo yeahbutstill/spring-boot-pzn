@@ -528,4 +528,26 @@ https://start.spring.io
 - Kita bisa menggunakan langsung SpringApplication, atau bisa juga menggunakan SpringApplicationBuilder
 - https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/builder/SpringApplicationBuilder.html
 
-##  
+## Spring Application Event
+
+- Sebelumnya kita sudah belajar tentang Event Listener
+- Di Spring Boot, terdapat banyak sekali Event yang dikirim ketika aplikasi Spring Boot berjalan
+- Jika kita ingin, kita bisa membuat Listener untuk menerima event tersebut
+- https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/context/event/SpringApplicationEvent.html
+
+## Daftar Event
+
+| Event                              | Keterangan                                              | 
+|------------------------------------|---------------------------------------------------------| 
+| ApplicationStartingEvent           | Dikirim ketika start aplikasi                           |
+| ApplicationContextInitializedEvent | Dikirim ketika ApplicationContext sudah di initialisasi |
+| ApplicationStartedEvent            | Dikirim ketika aplikasi sudah berjalan                  |
+| ApplicationFailedEvent             | Dikirim ketika aplikasi gagal berjalan                  |
+| dan lain-lain                      | ...                                                     |
+
+## Menambah Listener
+
+- Beberapa Event di Spring Boot Application Event di trigger bahkan sebelum Spring membuat Application Context
+- Oleh karena itu, jika kita buat menggunakan bean, bisa saja beberapa listener tidak akan dipanggil, karena bean nya
+  belum dibuat
+- Agar lebih aman, kita bisa menambahkan listener ketika membuat SpringApplication 
