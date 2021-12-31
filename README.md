@@ -519,5 +519,13 @@ https://start.spring.io
   console
 - Secara default fitur banner ini akan menyala dan akan mencari tulisan banner di classpath dengan nama banner.txt
 - Jika tidak ada file tersebut, maka secara otomatis akan menampilkan tulisan banner Spring Boot
-- Salah satu contoh tempat untuk membuat banner adalah http://www.bagill.com/ascii-sig.php 
+- Salah satu contoh tempat untuk membuat banner adalah http://www.bagill.com/ascii-sig.php
 
+## Customizing Spring Application
+
+- Kadang ada kalanya kita ingin melakukan pengaturan di Spring Application sebelum Application Context nya dibuat
+- https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/SpringApplication.html
+- Kita bisa menggunakan langsung SpringApplication, atau bisa juga menggunakan SpringApplicationBuilder
+- https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/builder/SpringApplicationBuilder.html
+
+##  
