@@ -550,4 +550,50 @@ https://start.spring.io
 - Beberapa Event di Spring Boot Application Event di trigger bahkan sebelum Spring membuat Application Context
 - Oleh karena itu, jika kita buat menggunakan bean, bisa saja beberapa listener tidak akan dipanggil, karena bean nya
   belum dibuat
-- Agar lebih aman, kita bisa menambahkan listener ketika membuat SpringApplication 
+- Agar lebih aman, kita bisa menambahkan listener ketika membuat SpringApplication
+
+## Command Line Runner
+
+- Saat kita membuat aplikasi, kadang kita butuh argument yang diberikan pada main method
+- Spring Application bisa mengirim data argument tersebut secara otomatis ke bean yang kita buat
+- Kita hanya butuh membuat bean dari CommandLineRunner
+- CommandLineRunner secara otomatis akan di jalankan ketika Spring Application berjalan
+- https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/CommandLineRunner.html
+
+## Application Runner
+
+- Selain CommandLineRunner, Spring Boot menyediakan fitur ApplicationRunner
+- Penggunaan ApplicationRunner sama seperti CommandLineRunnnner, hanya saja argument nya sudah di wrap dalam object
+  ApplicationArguments
+- Yang menarik dari ApplicationArguments adalah, memiliki fitur parsing untuk command line argument
+- https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/ApplicationArguments.html
+- https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/ApplicationRunner.html
+
+## Spring Boot Plugin
+
+- Saat kita membuat project Spring Boot, secara otomatis terdapat spring-boot-plugin di project maven kita
+- Plugin ini bisa digunakan untuk mempermudah saat kita menjalankan aplikasi Spring kita
+- Kita bisa gunakan perintah :
+- mvn spring-boot:run
+- Untuk menjalankan aplikasi Spring Boot kita, kita harus memastikan bahwa hanya ada satu main class
+
+## Distribution File
+
+- Spring Boot plugin juga sudah menyediakan cara membuat distribution file aplikasi kita
+- Plugin ini akan mendeteksi main class di project kita, lalu membundle aplikasi kita beserta dependency yang dibutuhkan
+  dalam satu file jar
+- Pastikan hanya terdapat satu main class, karena jika lebih dari satu, maka spring boot plugin akan melakukan komplen
+- Kita cukup gunakan perintah :
+- mvn package
+- Secara otomatis akan terbuat single jar application
+
+## Materi Selanjutnya
+
+- Spring Config Properties
+- Spring Logging
+- Spring Validation
+- Spring Aspect Oriented Programming
+- Spring Async
+- Spring Data JPA
+- Spring Web MVC
+- Dan lain-lain
